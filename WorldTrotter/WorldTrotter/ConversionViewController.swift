@@ -8,10 +8,12 @@
 
 import UIKit
 
-class ConversionViewController : UIViewController {
+class ConversionViewController : UIViewController, UITextFieldDelegate {
     // create an outlet to the Celsius text label and create an action for the text field to call when the text changes
     @IBOutlet var celsiusLabel: UILabel!
     // store the current Fahrenheit value, optional measurement for temperature
+    
+    @IBOutlet var textField: UITextField! // outlet for background view is tapped
     
     var fahrenheitValue: Measurement<UnitTemperature>? {
         // Add a property observer to fahrenheitValue that gets called after the property value changes.
@@ -28,7 +30,7 @@ class ConversionViewController : UIViewController {
             return nil }
     }
     
-    @IBOutlet var textField: UITextField! // outlet for background view is tapped
+    
     
     @IBAction func fahrenheitFieldEditingChanged(_ textField: UITextField) {
         //celsiusLabel.text = textField.text
@@ -75,7 +77,19 @@ class ConversionViewController : UIViewController {
         return nf
     }()
     
-    
-    
+    func textField(_ textField: UITextField,
+                   shouldChangeCharactersIn range: NSRange,
+                   replacementString string: String) -> Bool {
+        //print("Current text: \(textField.text)")
+        //print("Replacement text: \(string)")
+        //return true
+        let existingTextHasDecimalSeparator = textField.text?.range(of: ".")
+        let replacementTextHasDecimalSeparator = string.range(of: ".")
+        if existingTextHasDecimalSeparator != nil,
+            replacementTextHasDecimalSeparator != nil {
+            return false
+        } else {
+            return true }
+    }
     
 }
