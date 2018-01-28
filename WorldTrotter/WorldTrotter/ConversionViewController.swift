@@ -30,16 +30,7 @@ class ConversionViewController : UIViewController, UITextFieldDelegate {
             return nil }
     }
     
-    
-    
     @IBAction func fahrenheitFieldEditingChanged(_ textField: UITextField) {
-        //celsiusLabel.text = textField.text
-        // to display “???” if the text field is empty.
-        //if let text = textField.text, !text.isEmpty {
-        //    celsiusLabel.text = text
-        //} else {
-        //    celsiusLabel.text = "???"
-        //}
         if let text = textField.text, let value = Double(text) {
             fahrenheitValue = Measurement(value: value, unit: .fahrenheit)
         } else {
@@ -54,10 +45,9 @@ class ConversionViewController : UIViewController, UITextFieldDelegate {
     // updates the celsius label
     func updateCelsiusLabel() {
         if let celsiusValue = celsiusValue {
-            //celsiusLabel.text = "\(celsiusValue.value)"
             // modified updateCelsiusLabel() to use this formatter
-            celsiusLabel.text =
-                numberFormatter.string(from: NSNumber(value: celsiusValue.value))        } else {
+            celsiusLabel.text = numberFormatter.string(from: NSNumber(value: celsiusValue.value))
+        } else {
             celsiusLabel.text = "???"
         }
     }
@@ -78,26 +68,21 @@ class ConversionViewController : UIViewController, UITextFieldDelegate {
     }()
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        
         // disallow multiple decimals
         let existingTextHasDecimalSeparator = textField.text?.range(of: ".")
         let replacementTextHasDecimalSeparator = string.range(of: ".")
-        if existingTextHasDecimalSeparator != nil, replacementTextHasDecimalSeparator != nil {
-            return false
-        }
         let letterCharacters = NSCharacterSet.letters
         let containLetterCharacter = string.rangeOfCharacter(from: letterCharacters)
         
-               
+        if existingTextHasDecimalSeparator != nil, replacementTextHasDecimalSeparator != nil {
+            return false
+        }
         if containLetterCharacter != nil {
             return false
         }
-        else
-        {
+        else {
             return true
         }
     }
     
-    
-        
 }
