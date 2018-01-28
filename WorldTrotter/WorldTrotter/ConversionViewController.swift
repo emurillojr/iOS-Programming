@@ -77,19 +77,27 @@ class ConversionViewController : UIViewController, UITextFieldDelegate {
         return nf
     }()
     
-    func textField(_ textField: UITextField,
-                   shouldChangeCharactersIn range: NSRange,
-                   replacementString string: String) -> Bool {
-        //print("Current text: \(textField.text)")
-        //print("Replacement text: \(string)")
-        //return true
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        // disallow multiple decimals
         let existingTextHasDecimalSeparator = textField.text?.range(of: ".")
         let replacementTextHasDecimalSeparator = string.range(of: ".")
-        if existingTextHasDecimalSeparator != nil,
-            replacementTextHasDecimalSeparator != nil {
+        if existingTextHasDecimalSeparator != nil, replacementTextHasDecimalSeparator != nil {
             return false
-        } else {
-            return true }
+        }
+        let letterCharacters = NSCharacterSet.letters
+        let containLetterCharacter = string.rangeOfCharacter(from: letterCharacters)
+        
+               
+        if containLetterCharacter != nil {
+            return false
+        }
+        else
+        {
+            return true
+        }
     }
     
+    
+        
 }
