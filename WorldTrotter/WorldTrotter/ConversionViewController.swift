@@ -16,13 +16,13 @@ class ConversionViewController : UIViewController, UITextFieldDelegate {
     @IBOutlet var textField: UITextField! // outlet for background view is tapped
     
     var fahrenheitValue: Measurement<UnitTemperature>? {
-        // Add a property observer to fahrenheitValue that gets called after the property value changes.
+        // added a property observer to fahrenheitValue that gets called after the property value changes.
         didSet {
             updateCelsiusLabel()
         }
     }
     
-    // add a computed property for the Celsius value. This value will be computed based on the Fahrenheit value.
+    // added a computed property for the Celsius value. This value will be computed based on the Fahrenheit value.
     var celsiusValue: Measurement<UnitTemperature>? {
         if let fahrenheitValue = fahrenheitValue {
             return fahrenheitValue.converted(to: .celsius)
@@ -58,7 +58,7 @@ class ConversionViewController : UIViewController, UITextFieldDelegate {
         updateCelsiusLabel()
     }
     
-    // Created a constant number formatter
+    // Created a constant number formatter to limit the celsiusLabel text to one decimal
     let numberFormatter: NumberFormatter = {
         let nf = NumberFormatter()
         nf.numberStyle = .decimal
@@ -71,6 +71,7 @@ class ConversionViewController : UIViewController, UITextFieldDelegate {
         // disallow multiple decimals
         let existingTextHasDecimalSeparator = textField.text?.range(of: ".")
         let replacementTextHasDecimalSeparator = string.range(of: ".")
+        // disallow alphabetic characters
         let letterCharacters = NSCharacterSet.letters
         let containLetterCharacter = string.rangeOfCharacter(from: letterCharacters)
         
