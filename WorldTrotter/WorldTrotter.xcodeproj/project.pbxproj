@@ -14,6 +14,8 @@
 		76F32AE5201AB7D700B5A0A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76F32AE3201AB7D700B5A0A9 /* LaunchScreen.storyboard */; };
 		76F32AF0201AB7D700B5A0A9 /* WorldTrotterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F32AEF201AB7D700B5A0A9 /* WorldTrotterTests.swift */; };
 		76F32AFB201AB7D700B5A0A9 /* WorldTrotterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F32AFA201AB7D700B5A0A9 /* WorldTrotterUITests.swift */; };
+		E3BD69C2202138B300C29B18 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BD69C1202138B300C29B18 /* MapViewController.swift */; };
+		E3D17BE2202132ED00712550 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3D17BE1202132ED00712550 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		76F32AF6201AB7D700B5A0A9 /* WorldTrotterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WorldTrotterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		76F32AFA201AB7D700B5A0A9 /* WorldTrotterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldTrotterUITests.swift; sourceTree = "<group>"; };
 		76F32AFC201AB7D700B5A0A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E3BD69C1202138B300C29B18 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		E3D17BE1202132ED00712550 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3D17BE2202132ED00712550 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +86,7 @@
 				76F32AEE201AB7D700B5A0A9 /* WorldTrotterTests */,
 				76F32AF9201AB7D700B5A0A9 /* WorldTrotterUITests */,
 				76F32AD8201AB7D700B5A0A9 /* Products */,
+				E3D17BE0202132ED00712550 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,6 +109,7 @@
 				76F32AE3201AB7D700B5A0A9 /* LaunchScreen.storyboard */,
 				76F32AE6201AB7D700B5A0A9 /* Info.plist */,
 				7635FC98201E0B8B00D5986E /* ConversionViewController.swift */,
+				E3BD69C1202138B300C29B18 /* MapViewController.swift */,
 			);
 			path = WorldTrotter;
 			sourceTree = "<group>";
@@ -123,6 +130,14 @@
 				76F32AFC201AB7D700B5A0A9 /* Info.plist */,
 			);
 			path = WorldTrotterUITests;
+			sourceTree = "<group>";
+		};
+		E3D17BE0202132ED00712550 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E3D17BE1202132ED00712550 /* MapKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,6 +275,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7635FC99201E0B8B00D5986E /* ConversionViewController.swift in Sources */,
+				E3BD69C2202138B300C29B18 /* MapViewController.swift in Sources */,
 				76F32ADB201AB7D700B5A0A9 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
