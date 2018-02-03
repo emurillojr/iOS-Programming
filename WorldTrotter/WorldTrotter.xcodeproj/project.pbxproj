@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		760E952D20261C8900F0E470 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 760E952F20261C8900F0E470 /* Localizable.strings */; };
 		7635FC99201E0B8B00D5986E /* ConversionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7635FC98201E0B8B00D5986E /* ConversionViewController.swift */; };
 		76F32ADB201AB7D700B5A0A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F32ADA201AB7D700B5A0A9 /* AppDelegate.swift */; };
 		76F32AE0201AB7D700B5A0A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76F32ADE201AB7D700B5A0A9 /* Main.storyboard */; };
@@ -36,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		760E952E20261C8900F0E470 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		760E953020261C8B00F0E470 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7635FC98201E0B8B00D5986E /* ConversionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversionViewController.swift; sourceTree = "<group>"; };
 		76B438C42026139200A16137 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		76B438C72026154000A16137 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
@@ -105,6 +108,7 @@
 		76F32AD9201AB7D700B5A0A9 /* WorldTrotter */ = {
 			isa = PBXGroup;
 			children = (
+				760E952F20261C8900F0E470 /* Localizable.strings */,
 				76F32ADA201AB7D700B5A0A9 /* AppDelegate.swift */,
 				76F32ADE201AB7D700B5A0A9 /* Main.storyboard */,
 				76F32AE1201AB7D700B5A0A9 /* Assets.xcassets */,
@@ -231,6 +235,7 @@
 			knownRegions = (
 				en,
 				Base,
+				es,
 			);
 			mainGroup = 76F32ACE201AB7D700B5A0A9;
 			productRefGroup = 76F32AD8201AB7D700B5A0A9 /* Products */;
@@ -250,6 +255,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				76F32AE5201AB7D700B5A0A9 /* LaunchScreen.storyboard in Resources */,
+				760E952D20261C8900F0E470 /* Localizable.strings in Resources */,
 				76F32AE2201AB7D700B5A0A9 /* Assets.xcassets in Resources */,
 				76F32AE0201AB7D700B5A0A9 /* Main.storyboard in Resources */,
 			);
@@ -314,6 +320,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		760E952F20261C8900F0E470 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				760E952E20261C8900F0E470 /* en */,
+				760E953020261C8B00F0E470 /* es */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		76F32ADE201AB7D700B5A0A9 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
