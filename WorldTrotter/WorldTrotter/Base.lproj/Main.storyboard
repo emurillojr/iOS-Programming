@@ -25,19 +25,19 @@
                                 <color key="textColor" red="0.88235294117647056" green="0.34509803921568627" blue="0.16078431372549018" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="is really" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OLJ-Fs-I5Y">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="is really" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OLJ-Fs-I5Y">
                                 <rect key="frame" x="131" y="171" width="114" height="43"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BlW-nt-Xkv">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BlW-nt-Xkv">
                                 <rect key="frame" x="129" y="222" width="117" height="84"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="70"/>
                                 <color key="textColor" red="0.88235294119999996" green="0.34509803919999998" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="degrees Celsius" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DhO-Ei-jjc">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="degrees Celsius" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DhO-Ei-jjc">
                                 <rect key="frame" x="65" y="314" width="246" height="43"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                 <color key="textColor" red="0.88235294117647056" green="0.34509803921568627" blue="0.16078431372549018" alpha="1" colorSpace="calibratedRGB"/>
@@ -61,19 +61,23 @@
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="TZ4-8m-ifb" firstAttribute="centerX" secondItem="ajy-5r-ZxW" secondAttribute="centerX" id="9yw-oN-bKb"/>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="TZ4-8m-ifb" secondAttribute="trailingMargin" id="DLy-Pl-J8t"/>
                             <constraint firstItem="OLJ-Fs-I5Y" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="IYX-ev-yke"/>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="OLJ-Fs-I5Y" secondAttribute="trailing" id="KlL-A7-1aR"/>
                             <constraint firstItem="OLJ-Fs-I5Y" firstAttribute="centerX" secondItem="TZ4-8m-ifb" secondAttribute="centerX" id="Ksa-Nr-9LZ"/>
                             <constraint firstItem="ajy-5r-ZxW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="LrH-uE-RBO"/>
                             <constraint firstItem="DhO-Ei-jjc" firstAttribute="centerX" secondItem="TZ4-8m-ifb" secondAttribute="centerX" id="O0L-yN-wdd"/>
                             <constraint firstItem="BlW-nt-Xkv" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Uv0-2Y-evy"/>
                             <constraint firstItem="ajy-5r-ZxW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="Xze-1s-vE1"/>
-                            <constraint firstItem="TZ4-8m-ifb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="b8L-AG-VqI"/>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="BlW-nt-Xkv" secondAttribute="trailing" id="cEO-yB-Np1"/>
                             <constraint firstItem="BlW-nt-Xkv" firstAttribute="centerX" secondItem="TZ4-8m-ifb" secondAttribute="centerX" id="fiK-bx-TEF"/>
                             <constraint firstItem="TZ4-8m-ifb" firstAttribute="top" secondItem="ajy-5r-ZxW" secondAttribute="bottom" constant="8" id="fjg-LX-NOc"/>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="DhO-Ei-jjc" secondAttribute="trailing" id="hIS-q5-6GD"/>
                             <constraint firstItem="DhO-Ei-jjc" firstAttribute="top" secondItem="BlW-nt-Xkv" secondAttribute="bottom" constant="8" id="ljd-2s-11W"/>
                             <constraint firstItem="OLJ-Fs-I5Y" firstAttribute="top" secondItem="TZ4-8m-ifb" secondAttribute="bottom" constant="8" id="nSk-W3-hKJ"/>
+                            <constraint firstItem="TZ4-8m-ifb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="oB7-5k-2d9"/>
+                            <constraint firstItem="DhO-Ei-jjc" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="xBQ-GK-nOj"/>
                             <constraint firstItem="BlW-nt-Xkv" firstAttribute="top" secondItem="OLJ-Fs-I5Y" secondAttribute="bottom" constant="8" id="xdB-XQ-aLB"/>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="TZ4-8m-ifb" secondAttribute="trailing" id="xr1-YF-JLU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <connections>
@@ -102,7 +106,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TVd-3G-ysb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1338" y="116"/>
+            <point key="canvasLocation" x="1018" y="134"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="0jU-J8-zKi">
