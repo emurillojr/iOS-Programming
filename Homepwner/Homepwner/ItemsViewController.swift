@@ -14,8 +14,11 @@ class ItemsViewController: UITableViewController {  // implement a subclass of U
     var itemStore: ItemStore!
     
     // stub out two methods in the implementation
-    @IBAction func addNewItem(_ sender: UIButton) {
-        // implement addNewItem(_:)
+    //@IBAction func addNewItem(_ sender: UIButton) {
+    
+    // update the method signature for addNewItem(_:)
+    @IBAction func addNewItem(_ sender: UIBarButtonItem) {
+    // implement addNewItem(_:)
         
         // Make a new index path for the 0th section, last row
         //let lastRow = tableView.numberOfRows(inSection: 0)
@@ -34,23 +37,7 @@ class ItemsViewController: UITableViewController {  // implement a subclass of U
         
         
     }
-    @IBAction func toggleEditingMode(_ sender: UIButton) {
-      // implement toggleEditingMode(_:)
-     
-        // If you are currently in editing mode...
-        if isEditing {
-            // Change text of button to inform user of state
-            sender.setTitle("Edit", for: .normal)
-            // Turn off editing mode
-            setEditing(false, animated: true)
-        } else {
-            // Change text of button to inform user of state
-            sender.setTitle("Done", for: .normal)
-            // Enter editing mode
-            setEditing(true, animated: true)
-        }
-    
-    }
+   
     
     // implement tableView(_:numberOfRowsInSection:).
     override func tableView(_ tableView: UITableView,
@@ -131,14 +118,6 @@ class ItemsViewController: UITableViewController {  // implement a subclass of U
     // override viewDidLoad() to update the table view content inset
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Get the height of the status bar
-        let statusBarHeight = UIApplication.shared.statusBarFrame.height
-        let insets = UIEdgeInsets(top: statusBarHeight, left: 0, bottom: 0, right: 0)
-        tableView.contentInset = insets
-        tableView.scrollIndicatorInsets = insets
-        
-        // set the height of the table view cells
-        //tableView.rowHeight = 65
         
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 65
@@ -161,6 +140,18 @@ class ItemsViewController: UITableViewController {  // implement a subclass of U
         default:
                 preconditionFailure("Unexpected segue identifier.")
         }
+    }
+    
+    // override viewWillAppear(_:) to reload the table view
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
+    
+    // override the init(coder:) method to set the left bar button item
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        navigationItem.leftBarButtonItem = editButtonItem
     }
     
     
