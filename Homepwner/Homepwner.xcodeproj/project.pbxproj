@@ -16,6 +16,7 @@
 		7637DF8520262F6D00B8C8CA /* ItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7637DF8420262F6D00B8C8CA /* ItemsViewController.swift */; };
 		7637DF872026310100B8C8CA /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7637DF862026310100B8C8CA /* Item.swift */; };
 		7637DF89202631FD00B8C8CA /* ItemStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7637DF88202631FD00B8C8CA /* ItemStore.swift */; };
+		765B264E2027529C00384179 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765B264D2027529C00384179 /* DetailViewController.swift */; };
 		76D3E1E2202644B000A3AFE1 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D3E1E1202644B000A3AFE1 /* ItemCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +53,7 @@
 		7637DF8420262F6D00B8C8CA /* ItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsViewController.swift; sourceTree = "<group>"; };
 		7637DF862026310100B8C8CA /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		7637DF88202631FD00B8C8CA /* ItemStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemStore.swift; sourceTree = "<group>"; };
+		765B264D2027529C00384179 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		76D3E1E1202644B000A3AFE1 /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -112,6 +114,7 @@
 				7637DF862026310100B8C8CA /* Item.swift */,
 				7637DF88202631FD00B8C8CA /* ItemStore.swift */,
 				76D3E1E1202644B000A3AFE1 /* ItemCell.swift */,
+				765B264D2027529C00384179 /* DetailViewController.swift */,
 			);
 			path = Homepwner;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 				7637DF8520262F6D00B8C8CA /* ItemsViewController.swift in Sources */,
 				7637DF872026310100B8C8CA /* Item.swift in Sources */,
 				7637DF89202631FD00B8C8CA /* ItemStore.swift in Sources */,
+				765B264E2027529C00384179 /* DetailViewController.swift in Sources */,
 				7637DF5720262F0000B8C8CA /* AppDelegate.swift in Sources */,
 				76D3E1E2202644B000A3AFE1 /* ItemCell.swift in Sources */,
 			);
