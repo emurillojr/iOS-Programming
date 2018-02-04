@@ -18,6 +18,7 @@
 		7637DF89202631FD00B8C8CA /* ItemStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7637DF88202631FD00B8C8CA /* ItemStore.swift */; };
 		765B264E2027529C00384179 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765B264D2027529C00384179 /* DetailViewController.swift */; };
 		76D3E1E2202644B000A3AFE1 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D3E1E1202644B000A3AFE1 /* ItemCell.swift */; };
+		76F1CD952027945700E4EDBE /* ImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F1CD942027945700E4EDBE /* ImageStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		7637DF88202631FD00B8C8CA /* ItemStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemStore.swift; sourceTree = "<group>"; };
 		765B264D2027529C00384179 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		76D3E1E1202644B000A3AFE1 /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
+		76F1CD942027945700E4EDBE /* ImageStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 				7637DF88202631FD00B8C8CA /* ItemStore.swift */,
 				76D3E1E1202644B000A3AFE1 /* ItemCell.swift */,
 				765B264D2027529C00384179 /* DetailViewController.swift */,
+				76F1CD942027945700E4EDBE /* ImageStore.swift */,
 			);
 			path = Homepwner;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 				7637DF89202631FD00B8C8CA /* ItemStore.swift in Sources */,
 				765B264E2027529C00384179 /* DetailViewController.swift in Sources */,
 				7637DF5720262F0000B8C8CA /* AppDelegate.swift in Sources */,
+				76F1CD952027945700E4EDBE /* ImageStore.swift in Sources */,
 				76D3E1E2202644B000A3AFE1 /* ItemCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -22,11 +22,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Access the ItemsViewController and set its item store
         //let itemsController = window!.rootViewController as! ItemsViewController
         
+        // Create an ImageStore
+        let imageStore = ImageStore()
+        
         // update application(_:didFinishLaunchingWithOptions:) to reflect the new view controller hierarchy
         let navController = window!.rootViewController as! UINavigationController
         let itemsController = navController.topViewController as! ItemsViewController
         itemsController.itemStore = itemStore
-        
+        itemsController.imageStore = imageStore
         return true
     }
 

@@ -13,6 +13,9 @@ class ItemsViewController: UITableViewController {  // implement a subclass of U
     // add a property for an ItemStore
     var itemStore: ItemStore!
     
+    // add a property for ImageStore
+    var imageStore: ImageStore!
+    
     // stub out two methods in the implementation
     //@IBAction func addNewItem(_ sender: UIButton) {
     
@@ -97,6 +100,10 @@ class ItemsViewController: UITableViewController {  // implement a subclass of U
                                              handler: { (action) -> Void in
             // Remove the item from the store
             self.itemStore.removeItem(item)
+            
+            // Remove the item's image from the image store
+            self.imageStore.deleteImage(forKey: item.itemKey)
+                                                
             // Also remove that row from the table view with an animation
             self.tableView.deleteRows(at: [indexPath], with: .automatic) })
             ac.addAction(deleteAction)
@@ -136,6 +143,10 @@ class ItemsViewController: UITableViewController {  // implement a subclass of U
                 let detailViewController
                     = segue.destination as! DetailViewController
                 detailViewController.item = item
+                
+                // update prepare(for:sender:) to set the imageStore property on DetailViewController
+                detailViewController.imageStore = imageStore
+                
             }
         default:
                 preconditionFailure("Unexpected segue identifier.")
