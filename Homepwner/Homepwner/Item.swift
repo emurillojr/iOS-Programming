@@ -8,7 +8,24 @@
 
 import UIKit
 
-class Item: NSObject {
+class Item: NSObject, NSCoding {
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(name, forKey: "name")
+        aCoder.encode(dateCreated, forKey: "dateCreated")
+        aCoder.encode(itemKey, forKey: "itemKey")
+        aCoder.encode(serialNumber, forKey: "serialNumber")
+        aCoder.encode(valueInDollars, forKey: "valueInDollars")
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        name = aDecoder.decodeObject(forKey: "name") as! String
+        dateCreated = aDecoder.decodeObject(forKey: "dateCreated") as! Date
+        itemKey = aDecoder.decodeObject(forKey: "itemKey") as! String
+        serialNumber = aDecoder.decodeObject(forKey: "serialNumber") as! String?
+        valueInDollars = aDecoder.decodeInteger(forKey: "valueInDollars")
+        super.init()
+    }
+    
     var name: String
     var valueInDollars: Int
     var serialNumber: String?
@@ -25,6 +42,9 @@ class Item: NSObject {
         
         super.init()
     }
+    
+    
+    
     // Add a convenience initializer to Item that creates a randomly generated item
     convenience init(random: Bool = false) {
         if random {
@@ -44,5 +64,7 @@ class Item: NSObject {
         } else {
             self.init(name: "", serialNumber: nil, valueInDollars: 0)
         }
-    }    
+    }
+    
+
 }
