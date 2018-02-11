@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -31,7 +32,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ura-HA-YBw">
-                                <rect key="frame" x="138.5" y="135" width="98" height="30"/>
+                                <rect key="frame" x="139" y="135" width="98" height="30"/>
                                 <state key="normal" title="Next Question"/>
                                 <connections>
                                     <action selector="showNextQuestion:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5TE-N0-cKE"/>
@@ -44,29 +45,40 @@
                                     <action selector="showAnswer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bDw-ju-nad"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="???" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ra5-Ef-Ch3">
+                                <rect key="frame" x="175" y="100" width="25" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Z1r-Nj-MQE" firstAttribute="centerX" secondItem="ura-HA-YBw" secondAttribute="centerX" id="3VA-xp-fTl"/>
                             <constraint firstItem="1EV-Yy-hzI" firstAttribute="centerX" secondItem="ura-HA-YBw" secondAttribute="centerX" id="4Bw-Yv-Ngo"/>
-                            <constraint firstItem="ura-HA-YBw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="6RZ-08-mwG"/>
-                            <constraint firstItem="QiP-21-W2w" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="80" id="77q-K6-5He"/>
+                            <constraint firstItem="QiP-21-W2w" firstAttribute="top" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="80" id="77q-K6-5He"/>
                             <constraint firstItem="Z1r-Nj-MQE" firstAttribute="top" secondItem="1EV-Yy-hzI" secondAttribute="bottom" constant="8" id="8zt-dT-K4b"/>
+                            <constraint firstItem="ura-HA-YBw" firstAttribute="top" secondItem="QiP-21-W2w" secondAttribute="bottom" constant="14" id="EQJ-Fu-Rbe"/>
                             <constraint firstItem="1EV-Yy-hzI" firstAttribute="centerX" secondItem="ura-HA-YBw" secondAttribute="centerX" id="HDj-0U-gid"/>
                             <constraint firstItem="QiP-21-W2w" firstAttribute="centerX" secondItem="ura-HA-YBw" secondAttribute="centerX" id="IgV-tN-o9U"/>
                             <constraint firstItem="1EV-Yy-hzI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Mhr-6h-F2I"/>
                             <constraint firstItem="Z1r-Nj-MQE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="OYh-o1-1Od"/>
                             <constraint firstItem="QiP-21-W2w" firstAttribute="centerX" secondItem="ura-HA-YBw" secondAttribute="centerX" id="RTQ-mw-do1"/>
+                            <constraint firstItem="ura-HA-YBw" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="135" id="fZp-i2-ZT1"/>
                             <constraint firstItem="QiP-21-W2w" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="h2n-Yb-c1X"/>
-                            <constraint firstItem="ura-HA-YBw" firstAttribute="top" secondItem="QiP-21-W2w" secondAttribute="bottom" constant="14" id="q2g-8R-kME"/>
+                            <constraint firstItem="Ra5-Ef-Ch3" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="hrI-nU-gTT"/>
                             <constraint firstItem="1EV-Yy-hzI" firstAttribute="top" secondItem="ura-HA-YBw" secondAttribute="bottom" constant="158" id="uik-T7-hfG"/>
+                            <constraint firstItem="ura-HA-YBw" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="wTL-8f-cdd"/>
                             <constraint firstItem="Z1r-Nj-MQE" firstAttribute="centerX" secondItem="ura-HA-YBw" secondAttribute="centerX" id="yQY-EU-vK4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="answerLabel" destination="1EV-Yy-hzI" id="miy-0N-2qs"/>
-                        <outlet property="questionLabel" destination="QiP-21-W2w" id="JFB-Lp-IVA"/>
+                        <outlet property="currentQuestionLabel" destination="QiP-21-W2w" id="QZ4-Jy-wr9"/>
+                        <outlet property="currentQuestionLabelCenterXConstraint" destination="IgV-tN-o9U" id="5d8-T4-E5u"/>
+                        <outlet property="nextQuestionLabel" destination="Ra5-Ef-Ch3" id="jIm-pc-BU0"/>
+                        <outlet property="nextQuestionLabelCenterXConstraint" destination="hrI-nU-gTT" id="S1G-9G-Cju"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
