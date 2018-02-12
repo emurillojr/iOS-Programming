@@ -36,6 +36,7 @@ protocol APIClient {
 
 // protocol extension
 extension APIClient {
+    // use same function from original protocol
     func fetch<V: Codable>(with request: URLRequest, completion: @escaping (Either<V, APIError>) -> Void){
         // provide default implementation
         // create task since will be making request to api
