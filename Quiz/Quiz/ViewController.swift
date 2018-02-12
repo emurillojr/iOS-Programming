@@ -69,6 +69,9 @@ class ViewController: UIViewController {
     
     // add a new method to handle the animations and declare a closure constant that takes in no arguments and does not return anything
     func animateLabelTransitions() {
+        // Force any outstanding layout changes to occur
+        view.layoutIfNeeded()
+        
         //let animationClosure = { () -> Void in
         // Add functionality to the closure that sets the alpha of the questionLabel to 1. Then, pass this closure as an argument to animate(withDuration:animations:)
         //    self.questionLabel.alpha = 1
@@ -88,7 +91,7 @@ class ViewController: UIViewController {
         
         UIView.animate(withDuration: 0.5,
                        delay: 0,
-                       options: [],
+                       options: [.curveLinear],
                        animations: {
                         self.currentQuestionLabel.alpha = 0
                         self.nextQuestionLabel.alpha = 1
