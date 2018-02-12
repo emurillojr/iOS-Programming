@@ -12,8 +12,20 @@ class WeatherTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
+        //print("test")
+        // test
+        //  created instance of weather api
+        let weatherApi = WeatherAPIClient()
+        let weatherEndpoint = WeatherEndpoint.tenDayForecat(city: "Boston", state: "MA")
+        weatherApi.weather(with: weatherEndpoint) { (either) in
+        switch either {
+            case .value(let forcastText):
+                print(forcastText)
+            case .error(let error):
+                print(error)
+            }
+        }
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
