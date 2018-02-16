@@ -6,7 +6,8 @@
 //  Copyright © 2018 Murillo. All rights reserved.
 //
 
-// responsibile for creating a request to the weather api
+// Weather api
+// created api client responsibile for creating request to weather api
 
 import Foundation
 

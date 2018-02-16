@@ -6,7 +6,6 @@
 //  Copyright © 2018 Murillo. All rights reserved.
 //
 
-
 // end point for the json response, endpoint for the weather api
 
 import Foundation
@@ -37,7 +36,7 @@ extension Endpoint {
 }
 
 enum WeatherEndpoint: Endpoint { // conforms to Endpoint
-    case tenDayForecat(city: String, state: String)
+    case tenDayForecast(city: String, state: String)
     
     var baseUrl: String {
         return "https://api.wunderground.com"
@@ -45,7 +44,7 @@ enum WeatherEndpoint: Endpoint { // conforms to Endpoint
     
     var path: String {
         switch self {
-        case .tenDayForecat(let city, let state):
+        case .tenDayForecast(let city, let state):
             return "/api/8eb0cec557955d5f/forecast10day/q/\(state)/\(city).json"
         }
     }

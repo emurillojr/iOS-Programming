@@ -20,8 +20,8 @@ class WeatherAPIClient: APIClient {
         self.fetch(with: request) { (either: Either<Weather, APIError>) in
             switch either {
             case .value(let weather):
-                let weather = weather.forcast.forecastText
-                completion(.value(weather))
+                let textForecasst = weather.forecast.forecastText
+                completion(.value(textForecasst))
                 
             case .error(let error):
                 completion(.error(error))
