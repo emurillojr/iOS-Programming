@@ -9,7 +9,6 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
     //@IBOutlet var questionLabel: UILabel!
     // replace your declaration of a single label with two labels
     @IBOutlet var currentQuestionLabel: UILabel!
@@ -42,7 +41,6 @@ class ViewController: UIViewController {
         //questionLabel.text = question
         nextQuestionLabel.text = question
         answerLabel.text = "???"
-        
         // call the animateLabelTransitions() method whenever the user taps the Next Question button.
         animateLabelTransitions()
     }
@@ -56,22 +54,18 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         //questionLabel.text = questions[currentQuestionIndex]
         currentQuestionLabel.text = questions[currentQuestionIndex]
-        
         updateOffScreenLabel()
     }
-    
     
     func updateOffScreenLabel() {
         let screenWidth = view.frame.width
         nextQuestionLabelCenterXConstraint.constant = -screenWidth
     }
     
-    
     // add a new method to handle the animations and declare a closure constant that takes in no arguments and does not return anything
     func animateLabelTransitions() {
         // Force any outstanding layout changes to occur
         view.layoutIfNeeded()
-        
         //let animationClosure = { () -> Void in
         // Add functionality to the closure that sets the alpha of the questionLabel to 1. Then, pass this closure as an argument to animate(withDuration:animations:)
         //    self.questionLabel.alpha = 1
@@ -83,12 +77,10 @@ class ViewController: UIViewController {
         //    self.currentQuestionLabel.alpha = 0
         //    self.nextQuestionLabel.alpha = 1
         //})
-        
         // and the center X constraints
         let screenWidth = view.frame.width
         self.nextQuestionLabelCenterXConstraint.constant = 0
         self.currentQuestionLabelCenterXConstraint.constant += screenWidth
-        
         UIView.animate(withDuration: 0.5,
                        delay: 0,
                        options: [.curveLinear],
@@ -103,11 +95,7 @@ class ViewController: UIViewController {
                         swap(&self.currentQuestionLabelCenterXConstraint,
                              &self.nextQuestionLabelCenterXConstraint)
                         self.updateOffScreenLabel()
-                        
-                        
-                        
-        })
-        
+        })        
     }
     
     // override viewWillAppear(_:) to reset the questionLabel’s alpha to 0 each time the ViewController’s view comes onscreen.
