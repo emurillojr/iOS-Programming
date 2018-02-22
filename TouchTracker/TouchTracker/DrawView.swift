@@ -26,7 +26,6 @@ class DrawView: UIView, UIGestureRecognizerDelegate {
     }
     // declare a UIPanGestureRecognizer as a property so that you have access to it in all of your methods
     var moveRecognizer: UIPanGestureRecognizer!
-    
     // declare three properties to reference these values. Give them default values and have the view flag itself for redrawing whenever these properties change
     @IBInspectable var finishedLineColor: UIColor = UIColor.black {
         didSet {
@@ -43,7 +42,6 @@ class DrawView: UIView, UIGestureRecognizerDelegate {
             setNeedsDisplay()
         }
     }
-
     // write a method that uses UIBezierPath to create and stroke a path based on the properties of a given Line.
     func stroke(_ line: Line) {
         let path = UIBezierPath()
@@ -54,7 +52,6 @@ class DrawView: UIView, UIGestureRecognizerDelegate {
         path.addLine(to: line.end)
         path.stroke()
     }
-    
     // override draw(_:) to draw the lines in the array of finished lines as well as the current line, if any.
     override func draw(_ rect: CGRect) {
         // Draw finished lines in black
@@ -68,7 +65,6 @@ class DrawView: UIView, UIGestureRecognizerDelegate {
         //    UIColor.red.setStroke()
         //    stroke(line)
         //}
-        
         // Draw current lines in red
         //UIColor.red.setStroke()
         currentLineColor.setStroke() // updated to use new properties
@@ -108,7 +104,6 @@ class DrawView: UIView, UIGestureRecognizerDelegate {
         // Get location of the touch in view's coordinate system
         //let location = touch.location(in: self)
         //currentLine = Line(begin: location, end: location)
-        
         // Log statement to see the order of events
         print(#function)
         for touch in touches {
@@ -125,7 +120,6 @@ class DrawView: UIView, UIGestureRecognizerDelegate {
         //let touch = touches.first!
         //let location = touch.location(in: self)
         //currentLine?.end = location
-        
         // Log statement to see the order of events
         print(#function)
         for touch in touches {
@@ -202,7 +196,6 @@ class DrawView: UIView, UIGestureRecognizerDelegate {
             setNeedsDisplay()
         }
     }
-    
     // update the end location of the currentLine and add it to the finishedLines array when the touch ends.
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         //if var line = currentLine {
@@ -212,7 +205,6 @@ class DrawView: UIView, UIGestureRecognizerDelegate {
         //    finishedLines.append(line)
         //}
         //currentLine = nil
-        
         // Log statement to see the order of events
         print(#function)
         for touch in touches {
@@ -224,8 +216,7 @@ class DrawView: UIView, UIGestureRecognizerDelegate {
             }
         }
         setNeedsDisplay()
-    }
-    
+    }    
     // implement touchesCancelled(_:with:).
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         // Log statement to see the order of events
