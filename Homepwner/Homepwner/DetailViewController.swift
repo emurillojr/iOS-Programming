@@ -18,8 +18,6 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
     @IBOutlet var valueField: UITextField!
     @IBOutlet var dateLabel: UILabel!
     @IBOutlet var imageView: UIImageView!
-    
-    
     @IBAction func takePicture(_ sender: UIBarButtonItem) {
     // check for a camera by calling the method isSourceTypeAvailable(_:)
         let imagePicker = UIImagePickerController()
@@ -30,14 +28,10 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
         } else {
             imagePicker.sourceType = .photoLibrary
         }
-        
         // set the instance of DetailViewController to be the image picker’s delegate in takePicture(_:)
         imagePicker.delegate = self
-        
         // Place image picker on the screen
         present(imagePicker, animated: true, completion: nil)
-        
-        
     }
     
     // implement this method to put the image into the UIImageView and then call the method to dismiss the image picker
@@ -45,10 +39,8 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
                                didFinishPickingMediaWithInfo info: [String: Any]) {
         // Get picked image from info dictionary
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
-        
         // Store the image in the ImageStore for the item's key
         imageStore.setImage(image, forKey: item.itemKey)
-        
         // Put that image on the screen in the image view
         imageView.image = image
         // Take image picker off the screen -
@@ -56,15 +48,10 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
         dismiss(animated: true, completion: nil)
     }
     
-
-    
-    
     // Update the method to call endEditing(_:) on the view of DetailViewController
     @IBAction func backgroundTapped(_ sender: UITapGestureRecognizer) {
         view.endEditing(true)
     }
-
-    
     
     // add a property for an Item instance and override viewWillAppear(_:) to set up the interface
     // add a property observer to the item property that updates the title of the navigationItem
@@ -74,10 +61,8 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
         }
     }
     
-    
     // add a property for ImageStore
     var imageStore: ImageStore!
-    
     // Add an instance of NumberFormatter and DateFormatter
     let numberFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
@@ -99,30 +84,25 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
         serialNumberField.text = item.serialNumber
         //valueField.text = "\(item.valueInDollars)"
         //dateLabel.text = "\(item.dateCreated)"
-        
         // format the valueInDollars and dateCreated.
         valueField.text =
             numberFormatter.string(from: NSNumber(value: item.valueInDollars))
         dateLabel.text = dateFormatter.string(from: item.dateCreated)
-        
         // Get the item key
         let key = item.itemKey
         // If there is an associated image with the item
         // display it on the image view
         let imageToDisplay = imageStore.image(forKey: key)
         imageView.image = imageToDisplay
-        
     }
     
     // implement viewWillDisappear(_:)
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
         // dismiss keyboard on back
         // update the implementation of viewWillDisappear(_:) in DetailViewController.swift to call endEditing(_:)
         // Clear first responder
-        view.endEditing(true)
-        
+        view.endEditing(true)        
         // "Save" changes to item
         item.name = nameField.text ?? ""
         item.serialNumber = serialNumberField.text

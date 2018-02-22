@@ -11,7 +11,6 @@ import UIKit
 class ItemStore {
     // declare a property to store the list of Items.
     var allItems = [Item]()
-    
     // Implement a new property in ItemStore.swift to store this URL
     let itemArchiveURL: URL = {
         let documentsDirectories =
@@ -28,27 +27,18 @@ class ItemStore {
         }
     }
     
-    
-    
-    
     // implement createItem() to create and return a new Item
     @discardableResult func createItem() -> Item {
         let newItem = Item(random: true)
         allItems.append(newItem)
         return newItem
     }
-    
     // implement the designated initializer to add five random items
     //init() {
     //    for _ in 0..<5 {
     //        createItem()
     //    }
     //}
-    
-    
-    
-    
-    
     
     // implement a new method to remove a specific item
     func removeItem(_ item: Item) {
@@ -73,8 +63,7 @@ class ItemStore {
     func saveChanges() -> Bool {
         print("Saving items to: \(itemArchiveURL.path)")
         return NSKeyedArchiver.archiveRootObject(allItems, toFile: itemArchiveURL.path)
-    }
-    
+    }    
     
 }
 

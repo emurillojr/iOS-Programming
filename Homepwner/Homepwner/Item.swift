@@ -31,7 +31,6 @@ class Item: NSObject, NSCoding {
     var serialNumber: String?
     let dateCreated: Date
     let itemKey: String
-    
     // Implement a new designated initializer on the Item class that sets the initial values for all of the properties.
     init(name: String, serialNumber: String?, valueInDollars: Int) {
         self.name = name
@@ -39,11 +38,8 @@ class Item: NSObject, NSCoding {
         self.serialNumber = serialNumber
         self.dateCreated = Date()
         self.itemKey = UUID().uuidString
-        
         super.init()
     }
-    
-    
     
     // Add a convenience initializer to Item that creates a randomly generated item
     convenience init(random: Bool = false) {
@@ -64,7 +60,6 @@ class Item: NSObject, NSCoding {
         } else {
             self.init(name: "", serialNumber: nil, valueInDollars: 0)
         }
-    }
-    
+    }    
 
 }
