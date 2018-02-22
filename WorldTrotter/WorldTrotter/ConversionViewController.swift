@@ -12,9 +12,7 @@ class ConversionViewController : UIViewController, UITextFieldDelegate {
     // create an outlet to the Celsius text label and create an action for the text field to call when the text changes
     @IBOutlet var celsiusLabel: UILabel!
     // store the current Fahrenheit value, optional measurement for temperature
-    
     @IBOutlet var textField: UITextField! // outlet for background view is tapped
-    
     var fahrenheitValue: Measurement<UnitTemperature>? {
         // added a property observer to fahrenheitValue that gets called after the property value changes.
         didSet {
@@ -35,7 +33,6 @@ class ConversionViewController : UIViewController, UITextFieldDelegate {
         //    fahrenheitValue = Measurement(value: value, unit: .fahrenheit)
         if let text = textField.text, let number = numberFormatter.number(from: text) {
             fahrenheitValue = Measurement(value: number.doubleValue, unit: .fahrenheit)
-    
         } else {
             fahrenheitValue = nil
         }
@@ -77,17 +74,14 @@ class ConversionViewController : UIViewController, UITextFieldDelegate {
         // disallow multiple decimals
         //let existingTextHasDecimalSeparator = textField.text?.range(of: ".")
         //let replacementTextHasDecimalSeparator = string.range(of: ".")
-        
         let currentLocale = Locale.current
         let decimalSeparator = currentLocale.decimalSeparator ?? "."
         let existingTextHasDecimalSeparator
             = textField.text?.range(of: decimalSeparator)
         let replacementTextHasDecimalSeparator = string.range(of: decimalSeparator)
-        
         // disallow alphabetic characters
         let letterCharacters = NSCharacterSet.letters
-        let containLetterCharacter = string.rangeOfCharacter(from: letterCharacters)
-        
+        let containLetterCharacter = string.rangeOfCharacter(from: letterCharacters)        
         if existingTextHasDecimalSeparator != nil, replacementTextHasDecimalSeparator != nil {
             return false
         }
