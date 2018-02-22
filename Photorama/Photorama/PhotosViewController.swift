@@ -12,7 +12,6 @@ import UIKit
 class PhotosViewController: UIViewController, UICollectionViewDelegate {
     //@IBOutlet var imageView: UIImageView!
     @IBOutlet var collectionView: UICollectionView!
-    
     var store: PhotoStore! // add a property to hang on to an instance of PhotoStore
     let photoDataSource = PhotoDataSource()
     
@@ -26,21 +25,15 @@ class PhotosViewController: UIViewController, UICollectionViewDelegate {
         
         //update the data source as soon as the view is loaded
         updateDataSource()
-        
         store.fetchInterestingPhotos {
             (photosResult) -> Void in
-            
             switch photosResult {
             case let .success(photos):
                 print("Successfully found \(photos.count) photos.")
-                
                 //if let firstPhoto = photos.first {
                 //    self.updateImageView(for: firstPhoto)
                 //}
-                
-                ///////
                 self.photoDataSource.photos = photos
-                
             case let .failure(error):
                 print("Error fetching interesting photos: \(error)")
                 self.photoDataSource.photos.removeAll()
@@ -78,7 +71,6 @@ class PhotosViewController: UIViewController, UICollectionViewDelegate {
                     return
             }
             let photoIndexPath = IndexPath(item: photoIndex, section: 0)
-            
             // When the request finishes, only update the cell if it's still visible
             if let cell = self.collectionView.cellForItem(at: photoIndexPath)
                                                         as? PhotoCollectionViewCell {
@@ -86,7 +78,6 @@ class PhotosViewController: UIViewController, UICollectionViewDelegate {
             }
         }
     }
-    
     
     // implement prepare(for:sender:) to pass along the photo and the store
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -103,7 +94,6 @@ class PhotosViewController: UIViewController, UICollectionViewDelegate {
             preconditionFailure("Unexpected segue identifier.")
         }
     }
-
     
     //add a new method that will update the data source with all of the photos.
     private func updateDataSource() {
@@ -117,8 +107,7 @@ class PhotosViewController: UIViewController, UICollectionViewDelegate {
             }
             self.collectionView.reloadSections(IndexSet(integer: 0))
         }
-    }
-    
+    }    
 
 }
     

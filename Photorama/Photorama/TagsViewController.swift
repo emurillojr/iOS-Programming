@@ -15,8 +15,6 @@ class TagsViewController: UITableViewController {
     var store: PhotoStore!
     var photo: Photo!
     var selectedIndexPaths = [IndexPath]()
-    
-    
     @IBAction func done(_ sender: UIBarButtonItem) {
         presentingViewController?.dismiss(animated: true,
                                           completion: nil)
@@ -37,7 +35,6 @@ class TagsViewController: UITableViewController {
                 let newTag = NSEntityDescription.insertNewObject(forEntityName: "Tag",
                                                                  into: context)
                 newTag.setValue(tagName, forKey: "name")
-                
                 do {
                     try self.store.persistentContainer.viewContext.save()
                 } catch let error {
@@ -55,8 +52,6 @@ class TagsViewController: UITableViewController {
                 animated: true,
                 completion: nil)
     }
-    
-    
     
     // set the dataSource for the table view to be an instance of TagDataSource
     let tagDataSource = TagDataSource()
@@ -85,7 +80,6 @@ class TagsViewController: UITableViewController {
                         self.selectedIndexPaths.append(indexPath)
                     }
                 }
-                
             case let .failure(error):
                 print("Error fetching tags: \(error).")
             }
@@ -120,12 +114,6 @@ class TagsViewController: UITableViewController {
         } else {
             cell.accessoryType = .none
         }
-    }
-    
-    
-    
-    
-    
-    
+    }    
     
 }

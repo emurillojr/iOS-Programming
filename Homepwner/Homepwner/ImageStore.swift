@@ -11,7 +11,6 @@ import UIKit
 // add a property that is an instance of NSCache
 class ImageStore {
     let cache = NSCache<NSString,UIImage>()
-    
     // implement three methods for adding, retrieving, and deleting an image from the dictionary
     func setImage(_ image: UIImage, forKey key: String) {
         cache.setObject(image, forKey: key as NSString)
@@ -23,13 +22,10 @@ class ImageStore {
             // Write it to full URL
             let _ = try? data.write(to: url, options: [.atomic])
         }
-        
     }
-    
     
     func image(forKey key: String) -> UIImage? {
         //return cache.object(forKey: key as NSString)
-        
         if let existingImage = cache.object(forKey: key as NSString) {
             return existingImage
         }
@@ -40,10 +36,8 @@ class ImageStore {
         return imageFromDisk
     }
     
-    
     func deleteImage(forKey key: String) {
         cache.removeObject(forKey: key as NSString)
-        
         // make sure that when an image is deleted from the store, it is also deleted from the filesystem
         let url = imageURL(forKey: key)
         //FileManager.default.removeItem(at: url)
@@ -53,9 +47,7 @@ class ImageStore {
         } catch let deleteError {
             //print("Error removing the image from disk: \(error)")
             print("Error removing the image from disk: \(deleteError)")
-            
         }
-        
     }
     
     // Implement a new method in ImageStore.swift named imageURL(forKey:) to create a URL in the documents directory using a given key.

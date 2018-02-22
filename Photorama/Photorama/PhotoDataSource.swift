@@ -16,6 +16,7 @@ class PhotoDataSource: NSObject, UICollectionViewDataSource {
                         numberOfItemsInSection section: Int) -> Int {
         return photos.count
     }
+    
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let identifier = "UICollectionViewCell"
@@ -27,8 +28,6 @@ class PhotoDataSource: NSObject, UICollectionViewDataSource {
         let photo = photos[indexPath.row]
         cell.photoDescription = photo.title
         return cell
-    }
-    
-    
+    }   
     
 }

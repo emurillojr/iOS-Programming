@@ -12,9 +12,7 @@ import UIKit
 class PhotoCollectionViewCell: UICollectionViewCell {
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var spinner: UIActivityIndicatorView!
-    
     var photoDescription: String?
-    
     //override the accessibilityLabel to return this string.
     override var accessibilityLabel: String? {
         get {
@@ -24,7 +22,6 @@ class PhotoCollectionViewCell: UICollectionViewCell {
             // Ignore attempts to set
         }
     }
-    
     // override the accessibilityTraits property to let the system know that a cell holds an image.    
     override var accessibilityTraits: UIAccessibilityTraits {
         get {
@@ -34,9 +31,6 @@ class PhotoCollectionViewCell: UICollectionViewCell {
             // Ignore attempts to set
         }
     }
-    
-    
-    
     // helper method
     func update(with image: UIImage?) {
         if let imageToDisplay = image {
@@ -47,7 +41,6 @@ class PhotoCollectionViewCell: UICollectionViewCell {
             imageView.image = nil
         }
     }
-    
     // reset the cell back to the spinning state
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -57,7 +50,6 @@ class PhotoCollectionViewCell: UICollectionViewCell {
         super.prepareForReuse()
         update(with: nil)
     }
-    
     // override the isAccessibilityElement property to let the system know that each cell is accessible.
     override var isAccessibilityElement: Bool {
         get {
@@ -65,14 +57,6 @@ class PhotoCollectionViewCell: UICollectionViewCell {
         set {
             super.isAccessibilityElement = newValue
         }
-    }
-    
-    
-    
-    
-    
-    
-    
-    
+    }    
     
 }

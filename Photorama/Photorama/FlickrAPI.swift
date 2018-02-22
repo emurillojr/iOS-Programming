@@ -20,27 +20,21 @@ enum Method: String {
 }
 // struct, which will contain all of the knowledge that is specific to the Flickr API
 struct FlickrAPI {
-    
     // declare a type-level property to reference the base URL string for the web service requests
     private static let baseURLString = "https://api.flickr.com/services/rest"
     private static let apiKey = "131057f3a494d23515c98eda0114b2fc"
-
     // an instance of DateFormatter to convert the datetaken string into an instance of Date
     private static let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         return formatter
     }()
-    
     // method will return an empty URL.
     private static func flickrURL(method: Method,
                               parameters: [String:String]?) -> URL {
     //return URL(string: "")!
         var components = URLComponents(string: baseURLString)!
         var queryItems = [URLQueryItem]()
-        
-        
-        
         // add the common query items to the URLComponents.
         let baseParams = [
             "method": method.rawValue,
@@ -67,14 +61,12 @@ struct FlickrAPI {
     return flickrURL(method: .interestingPhotos,
                     parameters: ["extras": "url_h,date_taken"])
     }
-
     // implement a method that takes in an instance of Data and uses the JSONSerialization class to convert the data into the basic foundation objects
     static func photos(fromJSON data: Data,
                        into context: NSManagedObjectContext) -> PhotosResult {
         do {
             let jsonObject = try JSONSerialization.jsonObject(with: data,
                                                               options: [])
-            
             guard
                 let jsonDictionary = jsonObject as? [AnyHashable:Any],
                 let photos = jsonDictionary["photos"] as? [String:Any],
@@ -82,10 +74,7 @@ struct FlickrAPI {
                     // The JSON structure doesn't match our expectations
                     return .failure(FlickrError.invalidJSONData)
             }
-            
             var finalPhotos = [Photo]()
-
-            
             for photoJSON in photosArray {
                 if let photo = photo(fromJSON: photoJSON, into: context) {
                     finalPhotos.append(photo)
@@ -95,8 +84,7 @@ struct FlickrAPI {
                 // We weren't able to parse any of the photos
                 // Maybe the JSON format for photos has changed
                 return .failure(FlickrError.invalidJSONData)
-            }           
-            
+            }
             return .success(finalPhotos)
         } catch let error {
             return .failure(error)
@@ -116,7 +104,6 @@ struct FlickrAPI {
                 // Don't have enough information to construct a Photo
                 return nil
         }
-        
         // to check whether there is an existing photo with a given ID before inserting a new one
         let fetchRequest: NSFetchRequest<Photo> = Photo.fetchRequest()
         let predicate = NSPredicate(format: "\(#keyPath(Photo.photoID)) == \(photoID)")
@@ -128,11 +115,6 @@ struct FlickrAPI {
         if let existingPhoto = fetchedPhotos?.first {
             return existingPhoto
         }
-        
-        
-        
-        
-        
         //return Photo(title: title, photoID: photoID, remoteURL: url, dateTaken: dateTaken)
         var photo: Photo!
         context.performAndWait {
@@ -143,7 +125,6 @@ struct FlickrAPI {
             photo.dateTaken = dateTaken as NSDate
         }
         return photo
-    }
-    
+    }    
     
 }

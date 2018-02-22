@@ -11,7 +11,6 @@
 import UIKit
 class PhotoInfoViewController: UIViewController {
     @IBOutlet var imageView: UIImageView!
-    
     // pass both the Photo and the PhotoStore to the PhotoInfoViewController
     var photo: Photo! {
         didSet {
@@ -19,14 +18,11 @@ class PhotoInfoViewController: UIViewController {
         }
     }
     var store: PhotoStore!
-    
     // override viewDidLoad() to set the image on the imageView when the view is loaded
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // update viewDidLoad() to give the image view a more meaningful accessibility label
-        imageView.accessibilityLabel = photo.title
-        
+        imageView.accessibilityLabel = photo.title        
         store.fetchImage(for: photo) { (result) -> Void in
             switch result {
             case let .success(image):

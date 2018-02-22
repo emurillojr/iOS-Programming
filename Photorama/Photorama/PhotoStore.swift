@@ -17,16 +17,11 @@ enum ImageResult {
 enum PhotoError: Error {
     case imageCreationError
 }
-
-
-
-
 // add an enumeration named PhotosResult to the top of the file that has a case for both success and failure
 enum PhotosResult {
     case success([Photo])
     case failure(Error)
 }
-
 // define a new result type at the top for use when fetching tags
 enum TagsResult {
     case success([Tag])
@@ -34,9 +29,7 @@ enum TagsResult {
 }
 
 class PhotoStore {
-    
     let imageStore = ImageStore()
-    
     // add a property to hold on to an instance of NSPersistentContainer
     let persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "Photorama")
@@ -47,14 +40,11 @@ class PhotoStore {
         }
         return container
     }()
-    
-    
     // add a property to hold on to an instance of URLSession
     private let session: URLSession = {
         let config = URLSessionConfiguration.default
         return URLSession(configuration: config)
     }()
-    
     // implement the fetchInterestingPhotos() method to create a URLRequest that connects to api.flickr.com and asks for the list of interesting photos. Then, use the URLSession to create a URLSessionDataTask that transfers this request to the server.
     func fetchInterestingPhotos(completion: @escaping (PhotosResult) -> Void) {
         let url = FlickrAPI.interestingPhotosURL
@@ -140,7 +130,6 @@ class PhotoStore {
     
     // method will take in a completion closure that will return an instance of ImageResult
     func fetchImage(for photo: Photo, completion: @escaping (ImageResult) -> Void) {
-        
         guard let photoKey = photo.photoID else {
             preconditionFailure("Photo expected to have a photoID.")
         }
@@ -150,15 +139,12 @@ class PhotoStore {
             }
             return
         }
-        
         guard let photoURL = photo.remoteURL else {
             preconditionFailure("Photo expected to have a remote URL.")
         }
         let request = URLRequest(url: photoURL as URL)
         let task = session.dataTask(with: request) {
             (data, response, error) -> Void in
-            
-            
             let result = self.processImageRequest(data: data, error: error)
             if case let .success(image) = result {
                 self.imageStore.setImage(image, forKey: photoKey)
@@ -174,8 +160,7 @@ class PhotoStore {
     private func processImageRequest(data: Data?, error: Error?) -> ImageResult {
         guard
             let imageData = data,
-            let image = UIImage(data: imageData) else {
-        
+            let image = UIImage(data: imageData) else {        
         // Couldn't create an image
         if data == nil {
             return .failure(error!)
