@@ -13,6 +13,30 @@ class PhotoCollectionViewCell: UICollectionViewCell {
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var spinner: UIActivityIndicatorView!
     
+    var photoDescription: String?
+    
+    //override the accessibilityLabel to return this string.
+    override var accessibilityLabel: String? {
+        get {
+            return photoDescription
+        }
+        set {
+            // Ignore attempts to set
+        }
+    }
+    
+    // override the accessibilityTraits property to let the system know that a cell holds an image.    
+    override var accessibilityTraits: UIAccessibilityTraits {
+        get {
+            return super.accessibilityTraits | UIAccessibilityTraitImage
+        }
+        set {
+            // Ignore attempts to set
+        }
+    }
+    
+    
+    
     // helper method
     func update(with image: UIImage?) {
         if let imageToDisplay = image {
@@ -34,8 +58,14 @@ class PhotoCollectionViewCell: UICollectionViewCell {
         update(with: nil)
     }
     
-    
-    
+    // override the isAccessibilityElement property to let the system know that each cell is accessible.
+    override var isAccessibilityElement: Bool {
+        get {
+            return true }
+        set {
+            super.isAccessibilityElement = newValue
+        }
+    }
     
     
     

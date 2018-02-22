@@ -24,6 +24,9 @@ class PhotoInfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // update viewDidLoad() to give the image view a more meaningful accessibility label
+        imageView.accessibilityLabel = photo.title
+        
         store.fetchImage(for: photo) { (result) -> Void in
             switch result {
             case let .success(image):
