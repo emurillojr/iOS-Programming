@@ -83,7 +83,7 @@
         <!--Photo Info View Controller-->
         <scene sceneID="IWL-uo-EmS">
             <objects>
-                <viewController id="Vif-63-M3z" customClass="PhotoInfoViewController" customModule="Photorama" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Vif-63-M3z" customClass="PhotoInfoViewController" customModule="Photorama" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rVq-mV-7Yy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -23,7 +23,13 @@ class PhotosViewController: UIViewController, UICollectionViewDelegate {
         // set the PhotosViewController as the delegate of the collection view
         collectionView.delegate = self
         //store.fetchInterestingPhotos()
-        store.fetchInterestingPhotos { (photosResult) -> Void in
+        
+        //update the data source as soon as the view is loaded
+        updateDataSource()
+        
+        store.fetchInterestingPhotos {
+            (photosResult) -> Void in
+            
             switch photosResult {
             case let .success(photos):
                 print("Successfully found \(photos.count) photos.")
@@ -31,6 +37,8 @@ class PhotosViewController: UIViewController, UICollectionViewDelegate {
                 //if let firstPhoto = photos.first {
                 //    self.updateImageView(for: firstPhoto)
                 //}
+                
+                ///////
                 self.photoDataSource.photos = photos
                 
             case let .failure(error):
@@ -97,6 +105,19 @@ class PhotosViewController: UIViewController, UICollectionViewDelegate {
     }
 
     
+    //add a new method that will update the data source with all of the photos.
+    private func updateDataSource() {
+        store.fetchAllPhotos {
+            (photosResult) in
+            switch photosResult {
+            case let .success(photos):
+                self.photoDataSource.photos = photos
+            case .failure:
+                self.photoDataSource.photos.removeAll()
+            }
+            self.collectionView.reloadSections(IndexSet(integer: 0))
+        }
+    }
     
 
 }

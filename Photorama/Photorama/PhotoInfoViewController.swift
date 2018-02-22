@@ -23,6 +23,7 @@ class PhotoInfoViewController: UIViewController {
     // override viewDidLoad() to set the image on the imageView when the view is loaded
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         store.fetchImage(for: photo) { (result) -> Void in
             switch result {
             case let .success(image):
