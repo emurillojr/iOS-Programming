@@ -41,9 +41,12 @@ class ViewController: UIViewController {
             array.insert(i, at: i)
         }
         // Go one step too far emptying the array (notice the range change):
+        //for _ in 0...10 {
+        //    array.remove(at: 0)
+        
         for _ in 0..<10 {
-            //array.remove(at: 0)   // book error
-            array.remove(0)
+            array.removeObject(at: 0)   // book error  fixed
+        //    array.remove(0)
         }
     }
     
