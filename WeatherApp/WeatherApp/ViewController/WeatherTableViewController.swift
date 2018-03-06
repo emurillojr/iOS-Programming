@@ -15,8 +15,8 @@ class WeatherTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var cityChosen = "Providence"
-        var stateChosen = "RI"
+        let cityChosen = "Providence"
+        let stateChosen = "RI"
         
         
         //print("test")
